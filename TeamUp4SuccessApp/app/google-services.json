@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "225125819903",
+    "project_id": "teamup4successapp",
+    "storage_bucket": "teamup4successapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225125819903:android:47898896d2c931940473ca",
+        "android_client_info": {
+          "package_name": "com.e.teamup4successapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225125819903-togkhlfef65i2cberfi44m0nbockohl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIx7UpYe2oGj0qEcaZZ_fvSJL2-oFnBj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "225125819903-togkhlfef65i2cberfi44m0nbockohl3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TeamUp4Success"
+        android:textSize="50sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/indigo_daisy"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@id/tv_subtitle"/>
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tagL"
+        android:textSize="17sp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@id/et_emailL"/>
+
+
+
+    <EditText
+        android:id="@+id/et_emailL"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/e_mail"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15dp"
+        android:inputType="textEmailAddress"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_above="@id/et_passwordL"
+        android:background="@drawable/et_custom"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/et_passwordL"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:padding="15dp"
+        android:fontFamily="@font/roboto_regular"
+        android:inputType="textPassword"
+        android:layout_centerInParent="true"
+        android:background="@drawable/et_custom"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_passwordL"
+        android:background="@drawable/btn_custom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@android:color/white"
+        android:text="@string/login"/>
+
+    <TextView
+        android:id="@+id/reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:textColor="@color/red"
+        android:text="   Du bist noch nicht Angemeldet \nKlicke hier um dich zu Registrieren"
+        />
+
+    <TextView
+        android:id="@+id/psw_v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg"
+android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:textColor="@color/yellow"
+        android:text="Passwort vergessen?"
+        />
+
+
+
+</RelativeLayout>

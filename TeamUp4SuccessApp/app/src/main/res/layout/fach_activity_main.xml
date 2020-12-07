@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Fach">
+
+    <TextView
+        android:id="@+id/text_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Wähle aus:"
+        android:fontFamily="@font/indigo_daisy"
+        android:textSize="40sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="5dp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_id"
+        android:entries="@array/abteilung"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center_horizontal"
+        android:spinnerMode="dialog"
+        android:layout_marginBottom="5dp"
+        android:textSize="17sp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_below="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:fontFamily="@font/roboto_regular"
+        android:spinnerMode="dialog"
+        android:layout_marginBottom="5dp"
+        android:entries="@array/fach"/>
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_below="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:fontFamily="@font/roboto_regular"
+        android:spinnerMode="dialog"
+        android:entries="@array/auswahl"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_below="@+id/spinner3"
+        android:layout_width="match_parent"
+        android:textSize="17sp"
+        android:layout_margin="15dp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_custom"
+        android:text="Submit"/>
+
+
+
+
+</RelativeLayout>

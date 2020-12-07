@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">TU4Sapp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="swipe_left_for_register">Wische nach Links zum Registrieren</string>
+    <string name="login">Anmelden</string>
+    <string name="password">Passwort</string>
+    <string name="e_mail">Email-Adresse</string>
+    <string name="tagL">Bitte gib deine Anmeldedaten ein</string>
+    <string name="tagR">Herzlich Willkommen \nBitte melde dich bei unserer App an, \nmit dieser App kannst du anderen helfen
+        \noder du kannst Hilfe von anderen beanspruchen</string>
+    <string name="swipe_right_for_login">Wische nach Rechts zum Anmelden</string>
+    <string name="register">Registrieren</string>
+    <string name="re_type_password">Bitte Passwort nochmal eingeben</string>
+    <string name="your_name">Dein Benutzername</string>
+
+    <string-array name="home_spinner">
+        <item>Home</item>
+        <item>Anmeldedaten</item>
+        <item>Passwort ändern</item>
+        <item>Fach Auswahl</item>
+    </string-array>
+
+    <string-array name="abteilung">
+        <item>Informatik</item>
+        <item>Automatisierung</item>
+        <item>Mechatronik</item>
+        <item>Robotik</item>
+    </string-array>
+
+    <string-array name="fach">
+        <item>Mathematik</item>
+        <item>BWM</item>
+        <item>POS</item>
+        <item>NVS</item>
+        <item>TINF</item>
+        <item>DBI</item>
+        <item>Deutsch</item>
+        <item>Englisch</item>
+        <item>SYP</item>
+        <item>Geographie</item>
+        <item>Chemie</item>
+        <item>Geschichte</item>
+        <item>Physik</item>
+    </string-array>
+
+    <string-array name="auswahl">
+        <item>Lehrer</item>
+        <item>Schüler</item>
+    </string-array>
+
+
+</resources>
