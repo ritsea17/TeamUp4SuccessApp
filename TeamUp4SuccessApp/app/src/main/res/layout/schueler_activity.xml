@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Willkommen auf der Seite der Schüler"
-        android:textSize="30sp"
-        android:textColor="@drawable/btn_custom"
+        android:textSize="38sp"
+        android:textColor="@color/colorPrimary"
         android:fontFamily="@font/indigo_daisy"
         android:layout_marginBottom="5dp"
         android:textStyle="bold" />
@@ -30,15 +30,14 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/zuruecks"
-        android:layout_below="@+id/tv_aws"
+        android:id="@+id/btn_zS"
         android:layout_width="match_parent"
-        android:textSize="17sp"
-        android:layout_margin="15dp"
-        android:fontFamily="@font/roboto_regular"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_custom"
-        android:text="Zurück"/>
+        android:layout_below="@+id/tv_aws"
+        android:background="@color/colorPrimary"
+        android:text="Zurück"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_margin="15dp"/>
 
 
 

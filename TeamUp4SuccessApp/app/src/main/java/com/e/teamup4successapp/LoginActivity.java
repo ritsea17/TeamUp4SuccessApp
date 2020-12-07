@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity {
         et_email= (EditText) findViewById(R.id.et_emailL);
         et_passwort = (EditText) findViewById(R.id.et_passwordL);
        btnreg = findViewById(R.id.reg);
-
        fpsw = findViewById(R.id.psw_v);
 
         Log.d(TAG, "onCreateView: started");

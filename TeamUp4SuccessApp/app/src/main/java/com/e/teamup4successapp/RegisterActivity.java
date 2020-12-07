@@ -128,7 +128,7 @@ private List<String> Listedaten = new ArrayList<>();
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Log.d(TAG, "onSuccess: user Profile is createde"+userID);
+                                        Log.d(TAG, "onSuccess: user Profile is created"+userID);
                                     }
                                 });
                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
