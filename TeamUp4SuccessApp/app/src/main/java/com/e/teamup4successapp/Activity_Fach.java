@@ -47,20 +47,21 @@ public class Activity_Fach extends AppCompatActivity {
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Toast.makeText(Activity_Fach.this, "OnCLick Submit", Toast.LENGTH_SHORT).show();
                     String Abteilung = spinnerA.getSelectedItem().toString();
                     String Fach = spinnerF.getSelectedItem().toString();
                     String Person = spinnerP.getSelectedItem().toString().trim();
-                    if(spinnerP.getSelectedItem().equals(0)) {
+                    if(Person.equals("Lehrer")) {
                        // Intent intent = new Intent(getApplicationContext(), Lehrer_Activity.class);
                         //intent.putExtra("abt",Abteilung);
                         //intent.putExtra("fach",Fach);
                         //startActivity(intent);
+                        Toast.makeText(Activity_Fach.this, "Lehrer", Toast.LENGTH_SHORT).show();
                         String userID = fAuth.getCurrentUser().getUid();
                         DocumentReference documentReference = fStore.collection("fachanbieten").document(userID);
                         Map<String,Object> user = new HashMap<>();
                         user.put("username",userID);
-                        user.put("fach"+x,Fach);
-                        x++;
+                        user.put("fach",Fach);
                         documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
