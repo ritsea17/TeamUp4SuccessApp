@@ -30,7 +30,7 @@ public class Activity_Fach extends AppCompatActivity {
 
         private Spinner spinnerA, spinnerF, spinnerP;
         private TextView auswahl;
-        private Button submit;
+        private Button submit, z;
         FirebaseAuth fAuth;
         FirebaseFirestore fStore;
         String name;
@@ -45,6 +45,7 @@ public class Activity_Fach extends AppCompatActivity {
             spinnerF = findViewById(R.id.spinner2);
             spinnerP = findViewById(R.id.spinner3);
             submit = findViewById(R.id.btnSubmit);
+            z = findViewById(R.id.btn_zF);
             
 
 
@@ -55,6 +56,7 @@ public class Activity_Fach extends AppCompatActivity {
                     String Abteilung = spinnerA.getSelectedItem().toString();
                     String Fach = spinnerF.getSelectedItem().toString();
                     String Person = spinnerP.getSelectedItem().toString().trim();
+                    
                     if(Person.equals("Lehrer")) {
                         Intent intent = new Intent(getApplicationContext(), Lehrer_Activity.class);
                         intent.putExtra("abt", Abteilung);
@@ -96,6 +98,14 @@ public class Activity_Fach extends AppCompatActivity {
                         //});
                     }}
 
+            });
+
+            z.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
+                }
             });
         }
 

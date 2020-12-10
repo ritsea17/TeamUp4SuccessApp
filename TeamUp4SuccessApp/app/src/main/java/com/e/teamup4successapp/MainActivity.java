@@ -61,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
         else{
             Toast.makeText(MainActivity.this, "ERROR ! Bitte Verifiziere deine Email Adresse" +
                     "\nDu kannst sonst nicht in die Kursansicht wechseln", Toast.LENGTH_SHORT).show();
+            fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(MainActivity.this,"Verification Mail wurde gesendet",Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(MainActivity.this,"Error ! Verification Mail konnte nicht gesendet werden"+e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
 

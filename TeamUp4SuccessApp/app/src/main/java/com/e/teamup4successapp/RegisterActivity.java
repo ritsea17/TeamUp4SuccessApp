@@ -65,10 +65,10 @@ private List<String> Listedaten = new ArrayList<>();
         fAuth= FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-        if(fAuth.getCurrentUser() != null){
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
-        }
+        //if(fAuth.getCurrentUser() != null){
+          //  Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            //startActivity(intent);
+        //}
 
 
         btn_register.setOnClickListener(new View.OnClickListener(){
@@ -131,7 +131,7 @@ private List<String> Listedaten = new ArrayList<>();
                                         Log.d(TAG, "onSuccess: user Profile is created"+userID);
                                     }
                                 });
-                               startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                               startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                             }else{
                                 Toast.makeText(RegisterActivity.this,"Error"+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                             }
