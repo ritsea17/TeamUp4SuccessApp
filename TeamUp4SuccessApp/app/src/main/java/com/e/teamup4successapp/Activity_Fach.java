@@ -56,7 +56,7 @@ public class Activity_Fach extends AppCompatActivity {
                     String Abteilung = spinnerA.getSelectedItem().toString();
                     String Fach = spinnerF.getSelectedItem().toString();
                     String Person = spinnerP.getSelectedItem().toString().trim();
-                    
+
                     if(Person.equals("Lehrer")) {
                         Intent intent = new Intent(getApplicationContext(), Lehrer_Activity.class);
                         intent.putExtra("abt", Abteilung);
