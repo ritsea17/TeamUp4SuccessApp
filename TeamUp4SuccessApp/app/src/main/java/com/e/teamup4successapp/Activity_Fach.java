@@ -62,43 +62,49 @@ public class Activity_Fach extends AppCompatActivity {
                         intent.putExtra("abt", Abteilung);
                         intent.putExtra("fach", Fach);
                         startActivity(intent);
-
               //Einfügen eines Faches in die Collection "fachanbieten" wenn der User dieses Fach unterrichten möchte
+                        String userID = fAuth.getCurrentUser().getUid();
+                        Map<String,Object> user = new HashMap<>();
+                        user.put("name",userID);
+                        user.put("fach",Fach);
+                        fStore.collection("Lehrer").document(userID).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d(TAG, "onSuccess: Fach wurde Hinzugefügt"+userID);
+                                Toast.makeText(Activity_Fach.this, "Success: Fach eingefügt",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        ).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error writing document", e);
+                                Toast.makeText(Activity_Fach.this, "Fail: Fach nicht eingefügt",Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
-                        //String userID = fAuth.getCurrentUser().getUid();
-                        //DocumentReference documentReference = fStore.collection("fachanbieten").document(userID);
-                        //Toast.makeText(Activity_Fach.this, "Lehrer", Toast.LENGTH_SHORT).show();
-                        //Map<String,Object> user = new HashMap<>();
-                        //user.put("name",userID);
-                        //user.put("fach",Fach);
-                        //documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                           // @Override
-                            //public void onSuccess(Void aVoid) {
-                              //  Log.d(TAG, "onSuccess: Fach wurde Hinzugefügt"+userID);
-                            //}
-                        //});
                     }else{
                         Intent intent = new Intent(getApplicationContext(), Schueler_Activity.class);
                         intent.putExtra("abt", Abteilung);
                         intent.putExtra("fach", Fach);
                         startActivity(intent);
 
-            //Einfügen eines Neuen Faches wenn der User dafür Nachhilfe benötigt in die "fachsuchen" Collection
-
-                        //String userID = fAuth.getCurrentUser().getUid();
-                        //DocumentReference documentReference = fStore.collection("fachsuchen").document(userID);
-                       // Map<String,Object> user = new HashMap<>();
-                        //user.put("username",userID);
-                        //user.put("fach",Fach);
-                        //documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        // @Override
-                        //public void onSuccess(Void aVoid) {
-                        //  Log.d(TAG, "onSuccess: Fach wurde Hinzugefügt"+userID);
-                        //}
-                        //});
+                        //Einfügen eines Neuen Faches wenn der User dafür Nachhilfe benötigt in die "fachsuchen" Collection
+                        String userID = fAuth.getCurrentUser().getUid();
+                        DocumentReference documentReference = fStore.collection("Schueler").document(userID);
+                        Map<String,Object> user = new HashMap<>();
+                        user.put("username",userID);
+                        user.put("fach",Fach);
+                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d(TAG, "onSuccess: Fach wurde Hinzugefügt"+userID);
+                            }
+                        });
                     }}
 
             });
+
+
 
             z.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -108,5 +114,8 @@ public class Activity_Fach extends AppCompatActivity {
                 }
             });
         }
+                }
 
-}
+
+
+
