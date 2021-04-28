@@ -87,7 +87,7 @@ public class Activity_Fach extends AppCompatActivity {
 
                 @Override
                 public void onNothingSelected(AdapterView<?> adapterView) {
-                    
+
                 }
             });
 

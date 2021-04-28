@@ -28,13 +28,16 @@ public class TeacherList extends AppCompatActivity {
         ArrayList<String> names = new ArrayList<>();
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.list_item, names);
         listView.setAdapter(adapter);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Subjects").child("Deutsch");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Informatik").child("DBI").child("Schüler");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 names.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    names.add(snapshot.getValue().toString());
+                    String name = snapshot.getValue().toString();
+                    String[] separated = name.split("=");
+                    String finalname = separated[1].substring(0, separated[1].indexOf('}'));
+                    names.add(finalname);
                 }
                 adapter.notifyDataSetChanged();
             }
