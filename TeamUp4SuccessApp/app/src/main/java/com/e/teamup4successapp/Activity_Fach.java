@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -46,8 +48,48 @@ public class Activity_Fach extends AppCompatActivity {
             spinnerP = findViewById(R.id.spinner3);
             submit = findViewById(R.id.btnSubmit);
             z = findViewById(R.id.btn_zF);
-            
 
+            String[] department =getResources().getStringArray(R.array.abteilung);
+            ArrayAdapter<String> subjectAdapterA = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, department);
+            subjectAdapterA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerA.setAdapter(subjectAdapterA);
+
+            spinnerA.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    if(spinnerA.getSelectedItem().toString().equals("Informatik")) {
+                        String[] subjects =getResources().getStringArray(R.array.subjects_informatics);
+                        ArrayAdapter<String> subjectAdapter = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, subjects);
+                        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnerF.setAdapter(subjectAdapter);
+                    } else if(spinnerA.getSelectedItem().toString().equals("Automatisierung")) {
+                        String[] subjects =getResources().getStringArray(R.array.subjects_automation);
+                        ArrayAdapter<String> subjectAdapter = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, subjects);
+                        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnerF.setAdapter(subjectAdapter);
+                    } else if(spinnerA.getSelectedItem().toString().equals("Mechatronik")) {
+                        String[] subjects =getResources().getStringArray(R.array.subjects_mechatronics);
+                        ArrayAdapter<String> subjectAdapter = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, subjects);
+                        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnerF.setAdapter(subjectAdapter);
+                    } else if(spinnerA.getSelectedItem().toString().equals("Allgemein")) {
+                        String[] subjects =getResources().getStringArray(R.array.subjects);
+                        ArrayAdapter<String> subjectAdapter = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, subjects);
+                        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnerF.setAdapter(subjectAdapter);
+                    } else if(spinnerA.getSelectedItem().toString().equals("Robotik")) {
+                        String[] subjects =getResources().getStringArray(R.array.subjects_robotics);
+                        ArrayAdapter<String> subjectAdapter = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, subjects);
+                        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnerF.setAdapter(subjectAdapter);
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                    
+                }
+            });
 
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
