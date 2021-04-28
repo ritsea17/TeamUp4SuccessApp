@@ -1,59 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
+
+
         <TextView
             android:id="@+id/profil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:fontFamily="@font/indigo_daisy"
             android:text="Benutzerprofil"
-            android:textAlignment="center"
+            android:textSize="50sp"
             android:textColor="@color/colorPrimary"
-            android:textSize="50sp" />
+            android:fontFamily="@font/indigo_daisy"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"/>
 
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profil"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:fontFamily="@font/roboto_regular"
+            android:textSize="18sp"
             android:text="Benutzername"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_below="@+id/profil"
             android:textAlignment="textStart"
-            android:textSize="18sp" />
+            android:layout_centerHorizontal="true"
+            />
 
         <TextView
             android:id="@+id/tv_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_name"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/roboto_regular"
+            android:textSize="17sp"
             android:text="Email-Adresse"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_below="@+id/tv_name"
             android:textAlignment="textStart"
-            android:textSize="17sp" />
+            android:layout_centerHorizontal="true"/>
 
         <TextView
             android:id="@+id/tv_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_email"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/roboto_regular"
+            android:textSize="17sp"
             android:text="Telefon-Nummer"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_below="@+id/tv_email"
             android:textAlignment="textStart"
-            android:textSize="17sp" />
+            android:layout_centerHorizontal="true"/>
 
         <TextView
             android:id="@+id/tv_switch"
@@ -62,38 +66,26 @@
             android:layout_below="@id/tv_phone"
             android:layout_centerHorizontal="true"
             android:layout_margin="30dp"
+            android:textColor="@color/red"
             android:text="Wechsel zur Kursansicht"
-            android:textColor="@color/red" />
+            />
 
         <Button
             android:id="@+id/btn_Logout"
-            android:tag="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_custom"
             android:layout_below="@+id/tv_switch"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="200dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_custom"
             android:fontFamily="@font/roboto_regular"
-            android:onClick="logout"
+            android:textColor="@android:color/white"
             android:text="Abmelden"
-            android:textColor="@android:color/white" />
+            android:onClick="logout"/>
 
-        <Button
-            android:id="@+id/btn_getTeacher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_Logout"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_custom"
-            android:fontFamily="@font/roboto_regular"
-            android:onClick="getTeacherForSubject"
-            android:tag="2"
-            android:text="GetTeacher"
-            android:textColor="@android:color/white" />
+
+
 
 
 </RelativeLayout>
