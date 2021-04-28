@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID;
+    String data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         tv_kurs = findViewById(R.id.tv_switch);
-
         userID = fAuth.getCurrentUser().getUid();
         FirebaseUser fuser = fAuth.getCurrentUser();
 
@@ -82,8 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 phone.setText("Telefon-Nummer: "+value.getString("Nummer"));
                 name.setText("Benutzername:"+value.getString("fname"));
                 email.setText("Email-Adresse: "+value.getString("email"));
-
-
+                data = value.getString("fname");
             }});
 
         tv_kurs.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 if (fuser.isEmailVerified()){
                     Toast.makeText(MainActivity.this, "Hier wird zum Kurs gewechselt", Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(MainActivity.this, Activity_Fach.class);
+                    intent.putExtra("username",data);
                     startActivity(intent);
 
             }}

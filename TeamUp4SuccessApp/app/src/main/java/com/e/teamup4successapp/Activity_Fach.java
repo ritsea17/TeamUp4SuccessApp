@@ -5,108 +5,75 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.google.firebase.ktx.Firebase;
 
 public class Activity_Fach extends AppCompatActivity {
 
-        private Spinner spinnerA, spinnerF, spinnerP;
-        private TextView auswahl;
-        private Button submit, z;
-        FirebaseAuth fAuth;
-        FirebaseFirestore fStore;
-        String name;
+    private Spinner spinnerA, spinnerF, spinnerP;
+    private TextView auswahl;
+    private Button submit, z;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String name;
     private static final String TAG = "Activity_Fach";
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.fach_activity_main);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fach_activity_main);
+        Intent intent = getIntent();
+        name = intent.getStringExtra("username");
+        spinnerA = findViewById(R.id.spinner1);
+        spinnerF = findViewById(R.id.spinner2);
+        spinnerP = findViewById(R.id.spinner3);
+        submit = findViewById(R.id.btnSubmit);
+        z = findViewById(R.id.btn_zF);
 
-            spinnerA =  findViewById(R.id.spinner1);
-            spinnerF = findViewById(R.id.spinner2);
-            spinnerP = findViewById(R.id.spinner3);
-            submit = findViewById(R.id.btnSubmit);
-            z = findViewById(R.id.btn_zF);
-            
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Activity_Fach.this, "OnCLick Submit", Toast.LENGTH_SHORT).show();
+                insertFachData();
+            }
 
 
-            submit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(Activity_Fach.this, "OnCLick Submit", Toast.LENGTH_SHORT).show();
-                    String Abteilung = spinnerA.getSelectedItem().toString();
-                    String Fach = spinnerF.getSelectedItem().toString();
-                    String Person = spinnerP.getSelectedItem().toString().trim();
-                    
-                    if(Person.equals("Lehrer")) {
-                        Intent intent = new Intent(getApplicationContext(), Lehrer_Activity.class);
-                        intent.putExtra("abt", Abteilung);
-                        intent.putExtra("fach", Fach);
-                        startActivity(intent);
+        });
 
-              //Einfügen eines Faches in die Collection "fachanbieten" wenn der User dieses Fach unterrichten möchte
+        z.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
-                        //String userID = fAuth.getCurrentUser().getUid();
-                        //DocumentReference documentReference = fStore.collection("fachanbieten").document(userID);
-                        //Toast.makeText(Activity_Fach.this, "Lehrer", Toast.LENGTH_SHORT).show();
-                        //Map<String,Object> user = new HashMap<>();
-                        //user.put("name",userID);
-                        //user.put("fach",Fach);
-                        //documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                           // @Override
-                            //public void onSuccess(Void aVoid) {
-                              //  Log.d(TAG, "onSuccess: Fach wurde Hinzugefügt"+userID);
-                            //}
-                        //});
-                    }else{
-                        Intent intent = new Intent(getApplicationContext(), Schueler_Activity.class);
-                        intent.putExtra("abt", Abteilung);
-                        intent.putExtra("fach", Fach);
-                        startActivity(intent);
+    private void insertFachData() {
+        String fach = spinnerF.getSelectedItem().toString();
+        String abteilung = spinnerA.getSelectedItem().toString();
+        String person = spinnerP.getSelectedItem().toString().trim();
+        DatabaseReference data = FirebaseDatabase.getInstance().getReference().child(abteilung).child(fach).child(person);
+        FachObject o1 = new FachObject(name);
+        data.push().setValue(o1);
+        Toast.makeText(Activity_Fach.this, "Data inserted", Toast.LENGTH_SHORT).show();
 
-            //Einfügen eines Neuen Faches wenn der User dafür Nachhilfe benötigt in die "fachsuchen" Collection
 
-                        //String userID = fAuth.getCurrentUser().getUid();
-                        //DocumentReference documentReference = fStore.collection("fachsuchen").document(userID);
-                       // Map<String,Object> user = new HashMap<>();
-                        //user.put("username",userID);
-                        //user.put("fach",Fach);
-                        //documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        // @Override
-                        //public void onSuccess(Void aVoid) {
-                        //  Log.d(TAG, "onSuccess: Fach wurde Hinzugefügt"+userID);
-                        //}
-                        //});
-                    }}
-
-            });
-
-            z.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
-                }
-            });
-        }
-
+    }
 }
