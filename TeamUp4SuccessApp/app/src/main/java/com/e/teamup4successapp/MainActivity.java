@@ -107,5 +107,8 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
 
+            public void getTeacherForSubject(View view) {
+                startActivity(new Intent(getApplicationContext(), TeacherList.class));
+            }
         }
 

@@ -27,22 +27,65 @@
         <item>Automatisierung</item>
         <item>Mechatronik</item>
         <item>Robotik</item>
+        <item>Allgemein</item>
     </string-array>
 
-    <string-array name="fach">
-        <item>Mathematik</item>
+    <string-array name="subjects_informatics">
         <item>BWM</item>
         <item>POS</item>
         <item>NVS</item>
         <item>TINF</item>
         <item>DBI</item>
+        <item>SYP</item>
+        <item>VERT</item>
+    </string-array>
+
+    <string-array name="subjects_mechatronics">
+        <item>Mechanik</item>
+        <item>Elektrotechnik und Elektronik</item>
+        <item>Wirtschaft und Recht</item>
+        <item>Mechanische Systeme und Automatisierung</item>
+        <item>Fertigungs- und Betriebstechnik</item>
+        <item>Angewandte Informatik</item>
+        <item>Konstruktion und Projektmanagement</item>
+        <item>Laboratorium</item>
+        <item>Werkstätte und Produktionstechnik</item>
+    </string-array>
+
+    <string-array name="subjects_automation">
+        <item>Angewandte Informatik</item>
+        <item>Wirtschaft und Recht</item>
+        <item>Konstruktion und Projektmanagement</item>
+        <item>Technische Mechanik und Berechnung</item>
+        <item>Fertigungstechnik</item>
+        <item>Maschinen und Anlagen</item>
+        <item>Automatisierungstechnik</item>
+        <item>Elektrotechnik und Elektronik</item>
+        <item>Robotik</item>
+        <item>Laboratorium</item>
+        <item>Werkstätte und Produktionstechnik</item>
+        <item>Programmieren</item>
+    </string-array>
+
+    <string-array name="subjects_robotics">
+        <item>Wirtschaft und Recht</item>
+        <item>Mechanik und Elemente des Maschinenbaus</item>
+        <item>Elektrotechnik und Elektronik</item>
+        <item>Mechanische Systeme und Automatisierung</item>
+        <item>Fertigungs- und Betriebstechnik</item>
+        <item>Angewandte Informatik</item>
+        <item>Konstruktion und Projektmanagement</item>
+        <item>Laboratorium</item>
+        <item>Werkstätte und Produktionstechnik</item>
+        <item>Robotik</item>
+    </string-array>
+
+    <string-array name="subjects">
+        <item>Mathematik</item>
         <item>Deutsch</item>
         <item>Englisch</item>
-        <item>SYP</item>
-        <item>Geographie</item>
-        <item>Chemie</item>
-        <item>Geschichte</item>
-        <item>Physik</item>
+        <item>NAWI</item>
+        <item>GGP</item>
     </string-array>
 
     <string-array name="auswahl">
