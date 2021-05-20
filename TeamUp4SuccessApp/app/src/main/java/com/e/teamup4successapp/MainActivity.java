@@ -108,7 +108,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void getTeacherForSubject(View view) {
-                startActivity(new Intent(getApplicationContext(), TeacherList.class));
+                Intent intent = new Intent(getApplicationContext(), mySubjects_Activity.class);
+                intent.putExtra("username", data);
+                startActivity(intent);
             }
         }
 

@@ -14,6 +14,8 @@
     <string name="register">Registrieren</string>
     <string name="re_type_password">Bitte Passwort nochmal eingeben</string>
     <string name="your_name">Dein Benutzername</string>
+    <string name="mysubjects_headingtext">Meine Fächer:</string>
+    <string name="string_mysubjects_headingtext" />
 
     <string-array name="home_spinner">
         <item>Home</item>
@@ -22,7 +24,7 @@
         <item>Fach Auswahl</item>
     </string-array>
 
-    <string-array name="abteilung">
+    <string-array name="departments">
         <item>Informatik</item>
         <item>Automatisierung</item>
         <item>Mechatronik</item>

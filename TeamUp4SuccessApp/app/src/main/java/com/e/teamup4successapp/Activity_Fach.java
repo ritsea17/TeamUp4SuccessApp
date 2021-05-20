@@ -47,7 +47,7 @@ public class Activity_Fach extends AppCompatActivity {
         submit = findViewById(R.id.btnSubmit);
         z = findViewById(R.id.btn_zF);
 
-        String[] department =getResources().getStringArray(R.array.abteilung);
+        String[] department =getResources().getStringArray(R.array.departments);
         ArrayAdapter<String> subjectAdapterA = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, department);
         subjectAdapterA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerA.setAdapter(subjectAdapterA);

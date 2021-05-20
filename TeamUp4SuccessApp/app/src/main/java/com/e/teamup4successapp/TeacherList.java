@@ -1,5 +1,6 @@
 package com.e.teamup4successapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 public class TeacherList extends AppCompatActivity {
 
     ListView listView;
+    String subject;
+    String department;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +28,17 @@ public class TeacherList extends AppCompatActivity {
         setContentView(R.layout.getteacher_activity);
         listView = findViewById(R.id.ListView);
 
+        Intent intent = getIntent();
+        subject = intent.getStringExtra("subject");
+        department = intent.getStringExtra("department");
+
         ArrayList<String> names = new ArrayList<>();
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.list_item, names);
         listView.setAdapter(adapter);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Informatik").child("DBI").child("Schüler");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child(department).child(subject).child("Lehrer");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                names.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String name = snapshot.getValue().toString();
                     String[] separated = name.split("=");
