@@ -25,6 +25,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID;
+    DatabaseReference subject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         tv_kurs = findViewById(R.id.tv_switch);
+
 
         userID = fAuth.getCurrentUser().getUid();
         FirebaseUser fuser = fAuth.getCurrentUser();
@@ -91,8 +95,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (fuser.isEmailVerified()){
                     Toast.makeText(MainActivity.this, "Hier wird zum Kurs gewechselt", Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent(MainActivity.this, Activity_Fach.class);
-                    startActivity(intent);
+                    //Intent intent= new Intent(MainActivity.this, Activity_Fach.class);
+                    //tartActivity(intent);
+                    insertSubjectData();
 
             }}
         });
@@ -106,6 +111,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
             }
+    private void insertSubjectData() {
 
-        }
+       subject = FirebaseDatabase.getInstance().getReference().child("Subjects").child("Englisch");
+        String name= findViewById(R.id.tv_name).toString();
+        String email = findViewById(R.id.tv_email).toString();
+        String Person = "Lehrer";
+        String abteilung="inf";
+
+        Student student = new Student(name, abteilung,email,Person);
+        subject.push().setValue(student);
+        Toast.makeText(MainActivity.this, "Data Inserted",Toast.LENGTH_SHORT).show();
+    }
+
+
+}
 
