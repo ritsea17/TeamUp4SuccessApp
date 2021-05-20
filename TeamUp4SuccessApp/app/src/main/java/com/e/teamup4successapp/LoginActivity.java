@@ -1,18 +1,24 @@
 package com.e.teamup4successapp;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,9 +35,13 @@ public class LoginActivity extends AppCompatActivity {
     TextView btnreg, fpsw;
     private EditText et_email;
     private EditText et_passwort;
-    private TextView tv_message;
     private static final String TAG = "LoginFragment";
     FirebaseAuth fAuth;
+    private String username,password;
+    private CheckBox saveLoginCheckBox;
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
+    private Boolean saveLogin;
 
 
 
@@ -42,8 +52,17 @@ public class LoginActivity extends AppCompatActivity {
         btn_login = (Button) findViewById(R.id.btn_login);
         et_email= (EditText) findViewById(R.id.et_emailL);
         et_passwort = (EditText) findViewById(R.id.et_passwordL);
-       btnreg = findViewById(R.id.reg);
-       fpsw = findViewById(R.id.psw_v);
+        btnreg = findViewById(R.id.reg);
+        fpsw = findViewById(R.id.psw_v);
+        saveLoginCheckBox = (CheckBox)findViewById(R.id.saveLoginCheckBox);
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+            saveLogin = true;
+        if (saveLogin == true) {
+            et_email.setText(loginPreferences.getString("username", ""));
+            et_passwort.setText(loginPreferences.getString("password", ""));
+            saveLoginCheckBox.setChecked(true);
+        }
 
         Log.d(TAG, "onCreateView: started");
 
@@ -70,6 +89,25 @@ public class LoginActivity extends AppCompatActivity {
                     et_passwort.setError("Bitte ein Passwort eingeben"+emoji1);
                     return;
                 }
+
+                if (view == btn_login) {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(et_email.getWindowToken(), 0);
+
+                    username = et_email.getText().toString();
+                    password = et_passwort.getText().toString();
+
+                    if (saveLoginCheckBox.isChecked()) {
+                        loginPrefsEditor.putBoolean("saveLogin", true);
+                        loginPrefsEditor.putString("username", username);
+                        loginPrefsEditor.putString("password", password);
+                        loginPrefsEditor.apply();
+                    } else {
+                        loginPrefsEditor.clear();
+                        loginPrefsEditor.apply();
+                        saveLogin = false;
+                    }
+                }
                 fAuth.signInWithEmailAndPassword(mail,psw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -82,9 +120,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
             }
+
         });
 
         fpsw.setOnClickListener(new View.OnClickListener() {
@@ -132,14 +169,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
     }
 
     public String getEmojiByUnicode(int unicode){
         return new String(Character.toChars(unicode));
     }
+
 
 }
