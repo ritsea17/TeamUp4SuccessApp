@@ -15,7 +15,14 @@
     <string name="re_type_password">Bitte Passwort nochmal eingeben</string>
     <string name="your_name">Dein Benutzername</string>
     <string name="mysubjects_headingtext">Meine Fächer:</string>
-    <string name="string_mysubjects_headingtext" />
+
+    <string name="persondetails_header">Personen Detail:</string>
+    <string name="persondetails_labelName">Name:</string>
+    <string name="persondetails_labelClass">Klasse:</string>
+    <string name="persondetails_labelDepartment">Abteilung:</string>
+    <string name="persondetails_labelEmail">E-Mail:</string>
+    <string name="persondetails_btnMail">E-Mail senden</string>
+    <string name="persondetails_btnDiscord">Discord Chat öffnen</string>
 
     <string-array name="home_spinner">
         <item>Home</item>

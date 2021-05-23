@@ -92,7 +92,7 @@
             android:fontFamily="@font/roboto_regular"
             android:onClick="getTeacherForSubject"
             android:tag="2"
-            android:text="GetTeacher"
+            android:text="Meine Fächer"
             android:textColor="@android:color/white" />
 
 

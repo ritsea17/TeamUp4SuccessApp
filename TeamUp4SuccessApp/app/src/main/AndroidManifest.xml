@@ -26,6 +26,7 @@
         <activity android:name=".Schueler_Activity"/>
         <activity android:name=".TeacherList"/>
         <activity android:name=".mySubjects_Activity"></activity>
+        <activity android:name=".personDetail_Activity"></activity>
 
     </application>
 
