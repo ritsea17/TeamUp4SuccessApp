@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +34,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText et_name;
     EditText et_emailR;
-    EditText et_passwortR, et_phone;
+    EditText et_passwortR;
+    Spinner spinner_abteilung;
+    Spinner spinner_klasse;
     EditText et_passwort1R;
     Button btn_register;
     TextView  btnlog;
@@ -58,18 +58,13 @@ private List<String> Listedaten = new ArrayList<>();
         et_passwortR = (EditText) findViewById((R.id.et_passwordR1));
         et_passwort1R = (EditText) findViewById((R.id.et_repasswordR2));
         btn_register = (Button) findViewById(R.id.btn_register);
-        et_phone = (EditText) findViewById(R.id.et_tel);
+        spinner_abteilung = (Spinner) findViewById(R.id.spinner_abteilung);
+        spinner_klasse = (Spinner) findViewById(R.id.spinner_klasse);
        
         btnlog = findViewById(R.id.log);
 
         fAuth= FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-
-        //if(fAuth.getCurrentUser() != null){
-          //  Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            //startActivity(intent);
-        //}
-
 
         btn_register.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -80,7 +75,8 @@ private List<String> Listedaten = new ArrayList<>();
                 String mail = et_emailR.getText().toString().trim();
                 String psw = et_passwortR.getText().toString().trim();
                 String psw1 = et_passwort1R.getText().toString().trim();
-                String tel = et_phone.getText().toString().trim();
+                String department = spinner_abteilung.getSelectedItem().toString();
+                String klasse = spinner_klasse.getSelectedItem().toString();
 
                 int unicode1 =0x1F605;
                 int unicode2 = 0x1F600;
@@ -89,7 +85,6 @@ private List<String> Listedaten = new ArrayList<>();
                 String emoji1 = getEmojiByUnicode(unicode1);
                 String emoji2= getEmojiByUnicode(unicode2);
                 String emoji3 = getEmojiByUnicode(unicode3);
-                //MainActivity activity = (MainActivity) getActivity();
 
                 if (TextUtils.isEmpty(mail)){
                     et_emailR.setError("Bitte eine Email eingeben"+emoji1);
@@ -124,7 +119,8 @@ private List<String> Listedaten = new ArrayList<>();
                                 Map<String,Object> user = new HashMap<>();
                                 user.put("fname",name);
                                 user.put("email",mail);
-                                user.put("Nummer",tel);
+                                user.put("department",department);
+                                user.put("klasse",klasse);
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {

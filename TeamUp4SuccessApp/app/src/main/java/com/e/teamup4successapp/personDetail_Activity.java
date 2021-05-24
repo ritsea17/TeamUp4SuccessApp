@@ -11,8 +11,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class personDetail_Activity extends AppCompatActivity {
 
-    String name;
-    TextView name_textView, class_textView;
+    String name, abteilung, klasse, email;
+    TextView name_textView, class_textView, department_textView, email_textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,19 @@ public class personDetail_Activity extends AppCompatActivity {
 
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
+        abteilung = intent.getStringExtra("abteilung");
+        klasse = intent.getStringExtra("klasse");
+        email = intent.getStringExtra("email");
 
         name_textView = findViewById(R.id.name_textView);
         class_textView = findViewById(R.id.class_textView);
+        department_textView = findViewById(R.id.department_textView);
+        email_textView = findViewById(R.id.email_textView);
+
         name_textView.setText(name);
+        email_textView.setText(email);
+        department_textView.setText(abteilung);
+        class_textView.setText(klasse);
     }
 
 }

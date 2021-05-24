@@ -14,7 +14,10 @@
     <string name="register">Registrieren</string>
     <string name="re_type_password">Bitte Passwort nochmal eingeben</string>
     <string name="your_name">Dein Benutzername</string>
+
     <string name="mysubjects_headingtext">Meine Fächer:</string>
+    <string name="mysubjects_label_student">Nachhilfe erhalten:</string>
+    <string name="mysubjects_label_teacher">Nachhilfe geben:</string>
 
     <string name="persondetails_header">Personen Detail:</string>
     <string name="persondetails_labelName">Name:</string>
@@ -31,10 +34,43 @@
         <item>Fach Auswahl</item>
     </string-array>
 
+    <string-array name="roles">
+        <item>Schüler</item>
+        <item>Lehrer</item>
+    </string-array>
+
+    <string-array name="classes">
+        <item>1.Klasse</item>
+        <item>2.Klasse</item>
+        <item>3.Klasse</item>
+        <item>4.Klasse</item>
+        <item>5.Klasse</item>
+    </string-array>
+
     <string-array name="departments">
         <item>Informatik</item>
         <item>Automatisierung</item>
         <item>Mechatronik</item>
+        <item>Robotik</item>
+        <item>Allgemein</item>
+    </string-array>
+
+    <string-array name="departmentsInformatics">
+        <item>Informatik</item>
+        <item>Allgemein</item>
+    </string-array>
+
+    <string-array name="departmentsAutomation">
+        <item>Automatisierung</item>
+        <item>Allgemein</item>
+    </string-array>
+
+    <string-array name="departmentsMechatronics">
+        <item>Mechatronik</item>
+        <item>Allgemein</item>
+    </string-array>
+
+    <string-array name="departmentsRobotics">
         <item>Robotik</item>
         <item>Allgemein</item>
     </string-array>

@@ -32,25 +32,39 @@ public class Activity_Fach extends AppCompatActivity {
     private Button submit, z;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    String name;
+    String vname, vemail, vabteilung, vklasse;
     private static final String TAG = "Activity_Fach";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fach_activity_main);
+
         Intent intent = getIntent();
-        name = intent.getStringExtra("username");
+        vname = intent.getStringExtra("username");
+        vemail = intent.getStringExtra("email");
+        vabteilung = intent.getStringExtra("abteilung");
+        vklasse = intent.getStringExtra("klasse");
+
         spinnerA = findViewById(R.id.spinner1);
         spinnerF = findViewById(R.id.spinner2);
         spinnerP = findViewById(R.id.spinner3);
         submit = findViewById(R.id.btnSubmit);
         z = findViewById(R.id.btn_zF);
 
-        String[] department =getResources().getStringArray(R.array.departments);
-        ArrayAdapter<String> subjectAdapterA = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, department);
-        subjectAdapterA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerA.setAdapter(subjectAdapterA);
+        String[] department = getResources().getStringArray(R.array.departments);
+        if(vabteilung.equals("Informatik")) {
+            department =getResources().getStringArray(R.array.departmentsInformatics);
+        } else if (vabteilung.equals("Automatisierung")) {
+            department =getResources().getStringArray(R.array.departmentsAutomation);
+        } else if (vabteilung.equals("Mechatronik")) {
+            department =getResources().getStringArray(R.array.departmentsMechatronics);
+        } else if (vabteilung.equals("Robotik")) {
+            department =getResources().getStringArray(R.array.departmentsRobotics);
+        }
+        ArrayAdapter<String> subjectAdapter = new ArrayAdapter<String>(Activity_Fach.this,android.R.layout.simple_spinner_item, department);
+        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerA.setAdapter(subjectAdapter);
 
         spinnerA.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -113,7 +127,7 @@ public class Activity_Fach extends AppCompatActivity {
         String abteilung = spinnerA.getSelectedItem().toString();
         String person = spinnerP.getSelectedItem().toString().trim();
         DatabaseReference data = FirebaseDatabase.getInstance().getReference().child(abteilung).child(fach).child(person);
-        FachObject o1 = new FachObject(name);
+        FachObject o1 = new FachObject(vname, vemail, vabteilung, vklasse);
         data.push().setValue(o1);
         Toast.makeText(Activity_Fach.this, "Data inserted", Toast.LENGTH_SHORT).show();
     }

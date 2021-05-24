@@ -22,13 +22,16 @@
 
     <TextView
         android:id="@+id/tv_subtitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="@string/tagR"
         android:textSize="17sp"
         android:fontFamily="@font/roboto_regular"
         android:layout_marginStart="25dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:padding="8sp"/>
 
 
     <EditText
@@ -87,30 +90,43 @@
         android:background="@drawable/et_custom"
         android:textSize="15sp" />
 
-    <EditText
-        android:id="@+id/et_tel"
+    <Spinner
+        android:id="@+id/spinner_abteilung"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Tel. Nummer"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:padding="15dp"
-        android:fontFamily="@font/roboto_regular"
         android:background="@drawable/et_custom"
+        android:entries="@array/departments"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="Abteilung"
+        android:padding="15dp"
         android:textSize="15sp" />
 
+    <Spinner
+        android:id="@+id/spinner_klasse"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_custom"
+        android:entries="@array/classes"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="Klasse"
+        android:padding="15dp"
+        android:textSize="15sp" />
 
-
-
-        <Button
+    <Button
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_custom"
             android:fontFamily="@font/roboto_regular"
-            android:layout_margin="10dp"
-
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:textColor="@android:color/white"
             android:text="@string/register"/>
 
