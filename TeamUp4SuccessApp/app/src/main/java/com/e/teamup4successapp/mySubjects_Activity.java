@@ -141,35 +141,6 @@ public class mySubjects_Activity extends AppCompatActivity {
                     if (finalname.equals(username)) {
                         names.add(subject);
                     }
-                    //names.add(finalname);
-                    /*for (int i = 0; i < separated.length; i++) {
-                        if (separated[i].substring(0, 1).equals("{")) {
-
-                        } else {
-                            if (((i % 2) == 0)) {
-                                int v1 = separated[i].length() - 1;
-                                int v2 = separated[i].length();
-                                if (separated[i].substring(v1, v2).equals("}")) {
-                                    vemail = separated[i].substring(0, separated[i].indexOf('}'));
-                                } else {
-                                    String[] finalclass = separated[i].split(",");
-                                    vklasse = finalclass[0];
-                                }
-                            } else {
-                                String departmentorname = separated[i].substring(0, separated[i].indexOf(','));
-                                if (state == 0) {
-                                    vabteilung = departmentorname;
-                                    state = 1;
-                                } else if (state == 1) {
-                                    vusername = departmentorname;
-                                    state = 0;
-                                    if (vusername.equals(username)) {
-                                        names.add(subject);
-                                    }
-                                }
-                            }
-                        }
-                    }*/
                 }
                 adapter.notifyDataSetChanged();
             }
