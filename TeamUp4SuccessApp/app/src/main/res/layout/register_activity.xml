@@ -46,7 +46,9 @@
         android:inputType="textPersonName"
         android:fontFamily="@font/roboto_regular"
         android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/et_emailR"
@@ -60,7 +62,9 @@
         android:fontFamily="@font/roboto_regular"
         android:inputType="textEmailAddress"
         android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/et_passwordR1"
@@ -74,7 +78,9 @@
         android:fontFamily="@font/roboto_regular"
         android:inputType="textPassword"
         android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/et_repasswordR2"
@@ -88,7 +94,9 @@
         android:fontFamily="@font/roboto_regular"
         android:inputType="textPassword"
         android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@color/black"/>
 
     <Spinner
         android:id="@+id/spinner_abteilung"
@@ -102,7 +110,9 @@
         android:fontFamily="@font/roboto_regular"
         android:hint="Abteilung"
         android:padding="15dp"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@color/black"/>
 
     <Spinner
         android:id="@+id/spinner_klasse"
@@ -116,7 +126,9 @@
         android:fontFamily="@font/roboto_regular"
         android:hint="Klasse"
         android:padding="15dp"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@color/black"/>
 
     <Button
             android:id="@+id/btn_register"

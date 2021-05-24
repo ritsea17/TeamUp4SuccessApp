@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         android:name="android.support.multidex.MultiDexApplication" >
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity_Fach"/>
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".Lehrer_Activity"/>
         <activity android:name=".Schueler_Activity"/>
