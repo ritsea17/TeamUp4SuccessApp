@@ -92,6 +92,7 @@ public class TeacherList extends AppCompatActivity {
                 intent.putExtra("abteilung", vabteilung);
                 intent.putExtra("klasse", vklasse);
                 intent.putExtra("email", vemail);
+                intent.putExtra("fach", subject);
                 startActivity(intent);
             }
         });
