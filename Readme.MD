@@ -1,9 +1,16 @@
 # Installationsanleitung
-Um diese App zu installieren, muss man sich das GIT-Repository (https://github.com/ritsea17/TeamUp4SuccessApp.git) herunterladen und entpacken. 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Funktionierende Version:
 
-Anschließend muss man dieses entpacken und
-in Android Studio öffnen. 
+- Repository herunterladen (https://github.com/ritsea17/TeamUp4SuccessApp.git)
+- Entpacken und in Android Studio öffnen
+- Smartphone per USB-Kabel mit PC verbinden
+- USB-Debugging auf Smartphone aktivieren
+- App lässt sich nun auf dem Smartphone deployen
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Alternative: (Nicht funktionsfähig bei jedem Smartphone)
 
-Nun kann man sein Smartphone  per Kabel an seinen PC schließen. 
-
-Mittels aktiviertem USB-Debugging lässt sich nun die App auf dem Smartphone deployen und ist bereit genutzt zu werden. 
+- Repository herunterladen (https://github.com/ritsea17/TeamUp4SuccessApp.git)
+- Entpacken
+- Unter "TeamUp4SuccessApp\app\build\outputs\apk\release" die .apk kopieren
+- .apk aufs Smartphone verschieben und installieren
